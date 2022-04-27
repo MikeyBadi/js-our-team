@@ -16,32 +16,32 @@ Quando un pezzo di codice funziona, chiediamoci se possiamo scomporlo in funzion
 const teamOffice = [
   {//angela-caroll-chief-editor
     fullName: "Angela Caroll",
-    status: "Chief Editor",
+    role: "Chief Editor",
     image: "angela-caroll-chief-editor.jpg",
   },
   {//angela-lopez-social-media-manager
     fullName: "Angela Lopez",
-    status: "Social Media Manager",
+    role: "Social Media Manager",
     image: "angela-lopez-social-media-manager.jpg",
   },
   {//barbara-ramos-graphic-designer
     fullName: "Barbaraa Ramos",
-    status: "Graphic Designer",
+    role: "Graphic Designer",
     image: "barbara-ramos-graphic-designer.jpg",
   },
   {//scott-estrada-developer
     fullName: "Scott Estrada",
-    status: "Devloper",
+    role: "Devloper",
     image: "scott-estrada-developer.jpg",
   },
   {//walter-gordon-office-manager
     fullName: "Walter Gordon",
-    status: "Office Manager",
+    role: "Office Manager",
     image: "walter-gordon-office-manager.jpg",
   },
   {//wayne-barnett-founder-ceo
     fullName: "Wayne Barnett",
-    status: "Founder & CEO",
+    role: "Founder & CEO",
     image: "wayne-barnett-founder-ceo.jpg",
   }
 ];
@@ -62,9 +62,54 @@ for(let i in teamOffice){
     </div>
     <div class="card-text">
       <h3>${teamOffice[i].fullName}</h3>
-      <p>${teamOffice[i].status}</p>
+      <p>${teamOffice[i].role}</p>
     </div>
   </div> 
   `;
 };
 
+// Bonus
+
+const btn = document.querySelector("#addMemberButton")
+console.log(btn)
+
+const addNewMember = (name, role, img) =>{
+  teamOffice.push({
+      fullName: name,
+      role: role,
+      image: img
+  });
+};
+
+
+
+btn.addEventListener("click", () =>{
+  const nameVal = document.querySelector("#name").value
+  
+  const roleVal = document.querySelector("#role").value
+  
+  const imgVal = document.querySelector("#image").value
+
+  console.log(roleVal);
+  console.log(nameVal);
+  console.log(imgVal);
+  
+  addNewMember(nameVal, roleVal, imgVal);
+  
+  cardPlace.innerHTML +=`
+  <div class="team-card">
+  <div class="card-image">
+    <img
+      src="img/${imgVal}"
+      alt="${nameVal}"
+    />
+  </div>
+  <div class="card-text">
+    <h3>${nameVal}</h3>
+    <p>${roleVal}</p>
+  </div>
+  </div> 
+  `;
+  console.log(teamOffice);
+});
+  
