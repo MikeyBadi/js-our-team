@@ -22,7 +22,7 @@ const teamOffice = [
   {//angela-lopez-social-media-manager
     fullName: "Angela Lopez",
     status: "Social Media Manager",
-    image: "angela-lopez-social-media-manager",
+    image: "angela-lopez-social-media-manager.jpg",
   },
   {//barbara-ramos-graphic-designer
     fullName: "Barbaraa Ramos",
@@ -47,3 +47,24 @@ const teamOffice = [
 ];
 
 console.log(teamOffice);
+
+const cardPlace = document.querySelector(".team-container");
+
+for(let i in teamOffice){
+  console.log(teamOffice[i]);
+  cardPlace.innerHTML +=`
+  <div class="team-card">
+    <div class="card-image">
+      <img
+        src="img/${teamOffice[i].image}"
+        alt="${teamOffice[i].fullName}"
+      />
+    </div>
+    <div class="card-text">
+      <h3>${teamOffice[i].fullName}</h3>
+      <p>${teamOffice[i].status}</p>
+    </div>
+  </div> 
+  `;
+};
+
